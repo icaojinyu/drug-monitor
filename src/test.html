@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    p::selection {
+      color: red;
+      background: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+<p>我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字</p>
+<script type="text/html">
+  function runAsync() {
+  return new Promise((resolve, reject) => {
+  // 执行异步任务
+  setTimeout(() => {
+  console.log('hello promise')
+  resolve('随便什么数据')
+  }, 2000)
+  })
+  }
+
+  runAsync().then((res) => {
+  console.log(res)
+  })
+</script>
+
+<script type="text/html">
+  function getRandom() {
+  return Math.round(Math.random() * (20 - 10) + 10)
+  }
+
+  console.log(getRandom())
+</script>
+
+
+<script type="text/html">
+  function fn1() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(1)
+      }, 1000)
+    })
+  }
+
+  function fn2() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(2)
+      }, 2000)
+    })
+  }
+
+  function fn3() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(3)
+      }, 3000)
+    })
+  }
+
+  // Promise.all([fn1(), fn2(), fn3()]).then((res) => {
+  //   console.log(res)
+  // })
+
+  Promise.race([fn1(), fn2(), fn3()]).then((res) => {
+    console.log(res)
+  })
+
+  Promise.resolve('hello resolve').then((res) => {
+    console.log(res)
+  })
+</script>
+
+
+<script>
+  let str = 'cat, bat'
+  let re = /.at/
+
+  console.log(str.match(re))
+
+
+  function fn() {
+    console.log(arguments.callee)
+  }
+
+  fn()
+</script>
+</body>
+</html>

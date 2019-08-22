@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test3</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+<script>
+  let arr = [1,2,3,4]
+  let ret = arr.find((item,index,self)=>{
+    // console.log(item)
+    // console.log(index)
+    // console.log(self)
+    return item >2
+  })
+  console.log(ret)
+</script>
+</body>
+</html>
